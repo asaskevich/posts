@@ -15,7 +15,7 @@ Java & API: работа с iCalendar
 
 Существует два варианта загрузки календаря — из файла и парсинг строки с содержимым календаря. Мы выберем первый способ (второй существенно не отличается от него).
 
-```
+```java
 // Открываем входной поток из файла
 FileInputStream fin = new FileInputStream("calendar.ics");
 // И на основе этого потока парсим календарь в объект Calendar
@@ -27,7 +27,7 @@ Calendar calendar = builder.build(fin);
 
 Давайте теперь попробуем вывести куда — нибудь (ну хотя бы в консоль) все мероприятия из нашего календаря. 
 
-```
+```java
 // Получаем список мероприятий
 ComponentList listEvent = calendar.getComponents(Component.VEVENT);
 for (Object elem : listEvent) {
@@ -48,7 +48,7 @@ for (Object elem : listEvent) {
 
 Для того, чтобы вывести элементы, в моем случае мероприятия, в определенный период времени, можно применить фильтры. 
 
-```
+```java
 java.util.Calendar today = java.util.Calendar.getInstance();
 today.set(java.util.Calendar.HOUR_OF_DAY, 0);
 today.clear(java.util.Calendar.MINUTE);
@@ -63,7 +63,7 @@ List eventsToday = filter.filter(calendar.getComponents(Component.VEVENT));
 ```
 
 На момент написания в моем календаре хранились такие записи (в формате «Заголовок»: «Описание» [«Время начала»]):
-```
+```java
 Event 1: Event 1 — November 1 [7 Nov 2013 13:00:00 GMT]
 Event 5: Event 5 — November 12 [12 Nov 2013 12:00:00 GMT]
 Event 3: Event 3 — November 10 [10 Nov 2013 19:30:00 GMT]
@@ -79,7 +79,7 @@ Event 6: Event 6 — November 13 [13 Nov 2013 09:30:00 GMT]
 `Period period = new Period(new DateTime(today.getTime()), new Dur(3, 0, 0, 0));`
 
 … я получил такую картину:
-```
+```java
 Event 5: Event 5 — November 12 [12 Nov 2013 12:00:00 GMT]
 Event 4: Event 4 — November 11 [11 Nov 2013 08:00:00 GMT]
 Event 6: Event 6 — November 13 [13 Nov 2013 09:30:00 GMT]
@@ -89,7 +89,7 @@ Event 6: Event 6 — November 13 [13 Nov 2013 09:30:00 GMT]
 
 iCal4j поддерживает также создание календаря с нуля. Здесь всё просто. Создаем объект календаря, добавляем в него необходимые поля.
 
-```
+```java
 Calendar calendar = new Calendar();
 calendar.getProperties().add(new ProdId("-//habrahabr"));
 calendar.getProperties().add(Version.VERSION_2_0);
@@ -100,7 +100,7 @@ calendar.getProperties().add(CalScale.GREGORIAN);
 
 Вот с созданием мероприятия все не так просто, но если разобраться, то все пойдет достаточно быстро.
 
-```
+```java
 // Устанавливаем часовой пояс
 TimeZoneRegistry registry = TimeZoneRegistryFactory.getInstance().createRegistry();
 TimeZone timezone = registry.getTimeZone("Europe/Minsk");
@@ -142,7 +142,7 @@ icsCalendar.getComponents().add(meeting);
 
 Поработав с календарем, нам конечно же нужно его сохранить. Лучше всего сохранить обратно в файл.
 
-```
+```java
 FileOutputStream fout = new FileOutputStream("calendar.ics");
 CalendarOutputter out = new CalendarOutputter();
 out.output(calendar, fout);
