@@ -8,3 +8,4 @@
 * [Go: Развертывание web-приложения в среде Heroku](topic_4.md)
 * [Go: обзор пакета Crypto](topic_6.md)
 * [Clojure: первое знакомство](topic_7.md)
+* [Clojure: второе знакомство](topic_8.md)
