@@ -9,3 +9,4 @@
 * [Go: обзор пакета Crypto](topic_6.md)
 * [Clojure: первое знакомство](topic_7.md)
 * [Clojure: второе знакомство](topic_8.md)
+* [Clojure: типы данных] (topic_9.md)
