@@ -109,6 +109,6 @@ def info():
 
 #### Ссылки
 * [Flask.py](http://flask.pocoo.org/)
-* [http://github-flask.readthedocs.org/en/latest/](GitHub-Flask)
-* [http://developer.github.com/v3/](GitHub API)
+* [GitHub-Flask](http://github-flask.readthedocs.org/en/latest/)
+* [GitHub API](http://developer.github.com/v3/)
 * [Содержание](readme.md)
