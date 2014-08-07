@@ -10,3 +10,4 @@
 * [Clojure: первое знакомство](topic_7.md)
 * [Clojure: второе знакомство](topic_8.md)
 * [Clojure: типы данных] (topic_9.md)
+* [Python: Flask и GitHub] (topic_10.md)
