@@ -111,4 +111,4 @@ def info():
 * [Flask.py](http://flask.pocoo.org/)
 * [GitHub-Flask](http://github-flask.readthedocs.org/en/latest/)
 * [GitHub API](http://developer.github.com/v3/)
-* [Содержание](readme.md)
+* [Содержание](README.md)
