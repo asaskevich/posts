@@ -3,6 +3,7 @@
 
 * [Java & API: работа с iCalendar](topic_1.md)
 * [Java & API: Легкий старт с Jsoup](topic_5.md)
+* [Scala: внедряемся в код](topic_13.md)
 * [JS & API: StackExchange API на пальцах](topic_2.md)
 * [JS: Backbone.js, say "Hello"](topic_11.md)
 * [JS: Sails.js + Backbone.js = Hello, TODO](topic_12.md)
