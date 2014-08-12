@@ -79,3 +79,71 @@ res.view( {count: ___} );
 ```
 Где вместо пропуска будет получение общего количества записей.
 
+#### Клиентская часть
+
+Для начала подключим все необходимые библиотеки:
+```html
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore-min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/backbone.js/1.0.0/backbone-min.js"></script>
+```
+Создадим нашу модель, указав адрес, по которому она обрабатывается:
+```javascript
+var TaskModel = Backbone.Model.extend({
+	urlRoot: '/Task',
+});
+```
+Далее нужно описать коллекцию, которая хранит все модели:
+```javascript
+var TaskCollection = Backbone.Collection.extend({
+	url: '/Task',
+	model: TaskModel,
+});
+```
+Проинициализируем коллекцию и загрузим ее с сервера:
+```javascript
+var tasks = new TaskCollection();
+tasks.fetch();
+```
+Далее привяжем к нашей кнопке событие добавления записи:
+```javascript
+$("#add").click(function(){
+	var taskText = $("#task").val();
+	tasks.create({text: taskText}, {wait: true});
+	$("#task").val("");
+});
+```
+Теперь осталось описать вид и рендер коллекции. Шаблон будет таким: `{{  }}`, дабы не было конфликтов с шаблонами Sails.js:
+```javascript
+_.templateSettings = {
+	interpolate : /\{\{(.+?)\}\}/g
+};
+```
+Теперь осталось самую малость - описать вид:
+```javascript
+var TaskView = Backbone.View.extend({
+	el: '#tasks',
+	initialize: function () {
+		this.collection.on('add', this.render, this);
+		this.render();
+	},
+	template: _.template("<li>{{ text }}</li>"),
+	render: function () {
+		this.$el.html("");
+		this.collection.each(function(msg){
+			this.$el.append(this.template(msg.toJSON()));
+		}, this)
+	}
+});
+```
+Все, создаем объект вида и тестируем: `var mView = new TaskView({collection: tasks});`. Кнопка добавления добавляет новую запись сразу в коллекцию, а также синхронизируется с сервером, потому, если перезагрузить страницу, данные никуда не пропадут. Конечно, стоит позаботиться о серверной части, дабы в реальном приложении нельзя было удалить записи из базы, просто перейдя по нужной ссылке API.
+
+#### Заключение
+
+Скажу просто - это круто. Никаких особых заморочек с БД, нету особых сложностей с клиентской частью, да и с серверной. По сути - описать контроллеры, модели, шаблоны, сделать их связку, описать работу моделей и коллекций в клиентской части - и все готово. Ради интереса гляну еще некоторые MVC фреймворки, не только для Node.js, но и для других языков.
+
+#### Ссылки
+* [Sails.js](http://sailsjs.org/#/)
+* [Backbone.js](http://backbonejs.org/)
+* [Working With Data in Sails.js](http://code.tutsplus.com/tutorials/working-with-data-in-sailsjs--net-31525)
+* [Содержание](README.md)
