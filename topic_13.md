@@ -26,8 +26,10 @@ defined trait SayHello
 ```scala
 scala> var user_1 = new User
 user_1: User = User@daa183
+
 scala> user_1.name = "Bob"
 user_1.name: String = Bob
+
 scala> user_1.sayHi()
 <console>:10: error: value sayHi is not a member of User
               user_1.sayHi()
@@ -37,8 +39,10 @@ scala> user_1.sayHi()
 ```scala
 scala> var user_2 = new User with SayHello
 user_2: User with SayHello = $anon$1@64967f9e
+
 scala> user_2.name = "John"
 user_2.name: String = John
+
 scala> user_2.sayHi()
 Hello, my name is John!
 ```
@@ -71,6 +75,7 @@ str2MyStr: (s: String)MyString
 ```scala
 scala> "Hi".print
 Hi
+
 scala> "Good Day".print
 Good Day
 ```
