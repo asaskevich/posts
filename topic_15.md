@@ -103,6 +103,14 @@ CSS3: как построить дом?
 }
 ```
 И напоследок раскрасил фон, выделив два блока для земли и неба. В конце я получил вот что:
-<p data-height="268" data-theme-id="0" data-slug-hash="adbDw" data-default-tab="result" class='codepen'>See the Pen <a href='http://codepen.io/asaskevich/pen/adbDw/'>Small House in CSS3</a> by Alex Saskevich (<a href='http://codepen.io/asaskevich'>@asaskevich</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
-<script async src="//codepen.io/assets/embed/ei.js"></script>
 
+<p data-height="268" data-theme-id="0" data-slug-hash="adbDw" data-default-tab="result" class='codepen'> <a href="http://codepen.io/asaskevich/full/adbDw/"> Small House on CodePen </a> </p> 
+<script src="//codepen.io/assets/embed/ei.js"> </script>
+
+#### Заключение
+
+Собственно, CSS не такая уж и сложная технология. Поигравшись с тремя различными "пэнами", я ощутил, что создавать и верстать страницы можно вполне быстро и легко. В планах поэкспериментировать с множеством других CSS параметров, посмотреть, как ведет себя каждый из них.
+
+#### Ссылки
+* [Small House on CodePen](http://codepen.io/asaskevich/full/adbDw/)
+* [Содержание](README.md)
