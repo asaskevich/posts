@@ -1,0 +1,108 @@
+CSS3: как построить дом?
+======
+
+Не так давно я наконец решил взяться на изучение еще одной интересной темы - фронт-енд разработка. Так как в целом устройство HTML документа мне было понятно, я решил заняться основами CSS. А в качестве разминки я решил "построить" маленький домик только средствами HTML и CSS3.
+
+#### Начало
+
+Начал я с того, что определил основные составляющие будущего "дома": труба, крыша, чердак и один этаж. С трубой и этажем все просто - достаточно описать `div` блоки, задав размеры, цвет и позицию. С крышей немного интереснее: все-таки она находится под углом и состоит из двух половинок, каждая из которых повернута под некоторым углом к горизонтали. Чердак, ограниченый снизу этажем, а сверху крышей, представляет собой треугольный блок. Определив компоненты, HTML файл принял такой вид:
+```html
+<div id="house">
+  <div id="pipe"></div>
+  <div id="left-roof"></div>
+  <div id="right-roof"></div>
+  <div id="loft"></div>
+  <div id="floor"></div>
+</div>
+```
+
+#### Некоторые улучшения
+
+Пустые стены - это совершенно неинтересно. Потому я решил добавить маленькое окошко на чердаке:
+```html
+<div id="loft">
+  <div id="window"></div>
+</div>
+```
+А на первом этаже решил сделать дверь с окошечком и ручкой:
+```html
+<div id="floor">
+  <div id="door">
+    <div id="small-window"></div>
+    <div id="doorknob"></div>
+  </div>
+</div>
+```
+
+#### Стилизация
+
+Теперь, разметив структуру "дома", пора перейти к таблице стилей. Так, как все элементы спрятаны внутри блока `house`, то мы можем задавать позицию элементов, не боясь, что они могут "разъехаться" при изменении размера экрана. В целом все достаточно просто, интересным является только треугольный чердак:
+```css
+#loft
+{
+	width: 95px;
+	height: 95px;
+	position: relative;
+	top: -100px;
+	left: -20px;
+	overflow: hidden;
+	box-shadow: 0 16px 10px -17px rgba(0,0,0,.5)
+}
+
+#loft:after
+{
+	content: "";
+	position: absolute;
+	width: 45px;
+	height: 45px;
+	background: #efd;
+	transform: rotate(45deg);
+	top: 75px;
+	left: 25px;
+	box-shadow: -1px -1px 10px -2px rgba(0,0,0,.5)
+}
+```
+По сути, основной блок поворачивается на 45 градусов и наполовину скрывается другим блоком.
+
+#### Анимация
+
+Предпоследним штрихом стала анимация. Самое простое, что пришло мне в голову - это сделать для "трубы" "дым". Для этого я создал новый блок внутри "трубы", который разместил слоем ниже, и к которому прикрепил простую анимацию:
+```html
+<div id="pipe">
+  <div id="smoke"></div>
+</div>
+```
+```css
+#smoke
+{
+	width: 6px;
+	height: 6px;
+	left: 1px;
+	position: relative;
+	background: gray;
+	border-radius: 50%;
+	border: 1px solid #aaa;
+	box-shadow: 0 0 3px;
+	z-index: -1;
+	-webkit-animation: smoke-anim 1s linear infinite;
+	animation: smoke-anim 1s linear infinite
+}
+...
+@keyframes smoke-anim {
+	from
+	{
+		top: 0;
+		opacity: 1
+	}
+	
+	to
+	{
+		top: -25px;
+		opacity: 0
+	}
+}
+```
+И напоследок раскрасил фон, выделив два блока для земли и неба. В конце я получил вот что:
+<p data-height="268" data-theme-id="0" data-slug-hash="adbDw" data-default-tab="result" class='codepen'>See the Pen <a href='http://codepen.io/asaskevich/pen/adbDw/'>Small House in CSS3</a> by Alex Saskevich (<a href='http://codepen.io/asaskevich'>@asaskevich</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
+<script async src="//codepen.io/assets/embed/ei.js"></script>
+
