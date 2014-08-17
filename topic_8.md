@@ -98,3 +98,4 @@ user=> x
 * [Clojure cheatsheet](http://clojure.org/cheatsheet)
 * [Try Clojure](http://tryclj.com)
 * [Почему стоит изучить Clojure? / Хабрахабр](http://habrahabr.ru/post/173071/)
+* [Содержание](README.md)
