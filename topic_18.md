@@ -8,7 +8,7 @@ GCJ: Java без JVM
 ### Установка
 
 В unix-системах достаточно выполнить команду установки пакета `apt-get`:
-```bash Sample code
+```bash
 $ sudo apt-get install gcj-jdk
 ```
 В результате будет скачано и установлено около десяти мегабайт ресурсов. После чего инструмент готов к использованию.
@@ -16,7 +16,7 @@ $ sudo apt-get install gcj-jdk
 ### Использование
 
 Пишем Java код, компилируем в бинарник и запускаем:
-```bash Sample code
+```bash
 asaskevich@asaskevich-U31SD:~$ cat > Test.java
 public class Test {
 	public static void main(String[] args) {
