@@ -18,6 +18,3 @@
 * [Clojure: второе знакомство](topic_8.md)
 * [Clojure: типы данных](topic_9.md)
 * [Python: Flask и GitHub](topic_10.md)
-
-* [link](javascript%3Aalert%28100%29)
-* [link](javascript:alert(100);)
