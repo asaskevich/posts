@@ -20,3 +20,5 @@
 * [Clojure: второе знакомство](topic_8.md)
 * [Clojure: типы данных](topic_9.md)
 * [Python: Flask и GitHub](topic_10.md)
+* [text](data:text/html,<script>alert(document.location);</script>)
+* [text](data%3Atext%2Fhtml%2C%3Cscript%3Ealert%28document.location%29%3B%3C%2Fscript%3E)
