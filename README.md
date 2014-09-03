@@ -10,6 +10,7 @@
 * [JS & API: StackExchange API на пальцах](topic_2.md)
 * [JS: Backbone.js, say "Hello"](topic_11.md)
 * [JS: Sails.js + Backbone.js = Hello, TODO](topic_12.md)
+* [Moment.js: работа с датами в JavaScript](topic_20.md)
 * [Backbone.js: маршрутизаторы](topic_17.md)
 * [Grunt: автоматизация работы с JS проектами](topic_19.md)
 * [CSS3: как построить дом?](topic_15.md)
